@@ -11,3 +11,11 @@ def index(request):
     }
     return render(request, 'account/index.html', context)
 
+def handle_uploaded_file(f):
+    with open("uploads/{f.name}", "wb+") as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
+def my_files(request):
+    if request.method == 'POST':
+        handle_uploaded_file(request.FILES['file_upload'])
+    return render(request, 'account/my_files.html')
