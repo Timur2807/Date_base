@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="{% static 'image/db.ico'%}" type="image/x-icon">
+  <title>Данные</title>
+</head>
+<body>
+<h1>Добро пожаловать в Хранилище данных</h1>
+
+<div>
+  <a href="{% url 'registration:login' %}">Войти</a>
+</div>
+
+<div>
+  <a href="{% url 'registration:registration' %}">Регистрация</a>
+</div>
+
+</body>
+</html>

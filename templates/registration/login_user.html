@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="{% static 'image/db.ico'%}" type="image/x-icon">
+  <title>Авторизация</title>
+</head>
+<body>
+<h1 style="text-align: center; color: black">Страница авторизации</h1>
+  <form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Войти</button>
+  </form>
+  <a href="{% url 'registration:registration' %}">Регистрация</a>
+</body>
+</html>
