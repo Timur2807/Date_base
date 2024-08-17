@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <h1>Files</h1>
+{% endblock %}
+
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <p><button type="submit">Отправить</button></p>
+</form>
+<a href="{% url 'files:file_list' %}">Мои Файлы</a>
+{% endblock %}

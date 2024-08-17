@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+   <title>Files List</title>
+{% endblock %}
+
+{% block content %}
+<h1>Files</h1>
+   <ul>
+    {% for file in files %}
+        <a href="{% url 'files:file_details' pk=file.pk %}">
+            <li>
+                <h3>{{ file.title }}</h3>
+            </li>
+        </a>
+
+    {% endfor %}
+
+</ul>
+<a href="{% url 'files:file_upload' %}">Загрузить Файл</a>
+{% endblock %}
+
+
+
+
