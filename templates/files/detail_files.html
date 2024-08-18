@@ -6,7 +6,13 @@
 
 {% block content %}
 <h3>{{ file.title }}</h3>
-<h3>{{ file.file }}</h3>
+  {% if file.description %}
+    <h3>{{ file.description }}</h3>
+  {% endif %}
+
+  <div>
+    <a href="{{ file.file.url }}" download="{{ file.file.url }}">Скачать Файл</a>
+  </div>
 <a href="{% url 'files:file_list' %}">К списку файлов</a>
 {% endblock %}
 
