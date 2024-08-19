@@ -1,3 +1,7 @@
+"""
+В этом модуле представлены поля которые записываются в Базу данных.
+"""
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -5,6 +9,11 @@ from django.contrib.auth.models import User
 
 
 class UploadsFileModel(models.Model):
+    """
+    Модель UploadsFileModel представляет собой данные.
+
+    Которые можно сохранить в Базе Данных.
+    """
     title = models.CharField('Название файла', max_length=200)
     description = models.TextField('Описание',null=True, blank=True)
     file = models.FileField('Файл', upload_to='uploads/')

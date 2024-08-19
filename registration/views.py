@@ -1,3 +1,7 @@
+"""
+В это модуле представлены представления регистрации и авторизации пользователя.
+"""
+
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
@@ -42,7 +46,7 @@ def login_user(request):
         context = {
             'form': AuthenticationForm()
         }
-        return render(request, 'registration/login_user.html', context)
+        return render(request, 'registration/login.html', context)
     else:
         user = authenticate(
             username=request.POST['username'],

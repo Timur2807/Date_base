@@ -6,6 +6,11 @@ from django.dispatch import receiver
 
 
 class Profile(models.Model):
+    """
+    Модель Profile представляет собой профиль пользователя.
+
+    Который сохраняется при регистрации.
+    """
     GENDER_CHOICE = (
         ("M", "М"),
         ("F", "Ж"),

@@ -18,13 +18,30 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from drf_spectacular.views import (
+    SpectacularAPIView,
+    SpectacularRedocView,
+    SpectacularSwaggerView,
+)
 
 urlpatterns = [
+    path('admin/doc/', include('django.contrib.admindocs.urls')),
+    # подключение документации админки.
     path('admin/', admin.site.urls),
     path('', include('account.urls')),
+    # подключение приложения account.
     path('', include('files.urls')),
+    # подключение приложения files.
     path('', include('registration.urls')),
+    # подключение приложения registration.
     path('', include('api_app.urls')),
+    # подключение приложения api_app.
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    # подключение схемы документации.
+    path('api/swagger/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger'),
+    # подключение swagger.
+    path('api/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+    # подключение redoc.
 ]
 
 if settings.DEBUG:

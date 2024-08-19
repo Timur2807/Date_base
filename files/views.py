@@ -1,3 +1,9 @@
+"""
+В этом модуле представлены представления загрузки файлов.
+
+И отображение загружаемых файлов.
+"""
+
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import UploadsFileModel
 from .forms import UploadsFileForms
@@ -6,7 +12,7 @@ from .forms import UploadsFileForms
 # Create your views here.
 
 
-def my_files(request):
+def upload(request):
     if request.method == 'POST':
         form = UploadsFileForms(request.POST, request.FILES)
         if form.is_valid():
@@ -19,7 +25,7 @@ def my_files(request):
     return render(request, 'files/my_files.html', {'form': form})
 
 
-def my_file_list(request):
+def file_list(request):
     files = UploadsFileModel.objects.filter(user=request.user)
     context = {
         'files': files,
