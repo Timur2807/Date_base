@@ -15,7 +15,7 @@ class UploadsFileModel(models.Model):
     Которые можно сохранить в Базе Данных.
     """
     title = models.CharField('Название файла', max_length=200)
-    description = models.TextField('Описание',null=True, blank=True)
+    description = models.TextField('Описание', null=True, blank=True)
     file = models.FileField('Файл', upload_to='uploads/')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 

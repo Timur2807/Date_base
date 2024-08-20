@@ -1,0 +1,7 @@
+default-- по умолчанию 
+succes -- успешно
+successful --успешный
+include - включать 
+exclude - исключать
+exeption - исключение
+

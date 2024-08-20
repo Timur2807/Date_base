@@ -11,7 +11,23 @@ from .forms import UploadsFileForms
 
 # Create your views here.
 
+def handle_uploaded_file(f):
+    with open(f"media/uploads/{f.name}", "wb+") as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
 
+def about(request):
+    if request.method == 'POST':
+        form = UploadsFileForms(request.POST, request.FILES)
+        if form.is_valid():
+            handle_uploaded_file(form.cleaned_data['file'])
+            newfile = form.save(commit=False)
+            newfile.user = request.user
+            newfile.save()
+            return redirect('files:file_list')
+    else:
+        form = UploadsFileForms()
+    return render(request, 'files/my_files.html', {'form': form})
 def upload(request):
     if request.method == 'POST':
         form = UploadsFileForms(request.POST, request.FILES)

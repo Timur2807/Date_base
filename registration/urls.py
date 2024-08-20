@@ -3,7 +3,7 @@
 """
 
 from django.urls import path
-from django.contrib.auth import views as standard_view
+from django.contrib.auth.views import LoginView
 
 from .views import *
 
@@ -11,7 +11,7 @@ app_name = 'registration'
 
 urlpatterns = [
     path('signup/', registration, name='registration'),
-    path('login/', standard_view.LoginView.as_view(), name='login'),
+    path('login/', LoginView.as_view(redirect_authenticated_user=True), name='login'),
     path('logout/', logout_user, name='logout'),
     path('', welcome, name='welcome'),
 ]

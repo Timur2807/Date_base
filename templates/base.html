@@ -6,19 +6,25 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{% static 'image/db.ico'%}" type="image/x-icon">
+
+  <title>
     {% block title %}
-        <title>Document</title>
+
     {% endblock %}
+  </title>
+    
 
 </head>
 
 <body>
 <header>
-    <a href="">Главная</a>
+
     <div class="header__container">
         {% if user.is_authenticated %}
             <p>Вы зашли под именем: {{ user.username }}</p>
-            <form action="{% url 'registration:login' %}"  method="post">
+            <a href="{% url 'account:index' %}">Главная</a>
+            <form action="{% url 'registration:logout' %}"  method="post">
             {% csrf_token %}
             <button type="submit">Выйти</button>
         {% else %}

@@ -44,7 +44,7 @@ def registration(request):
 def login_user(request):
     if request.method == 'GET':
         context = {
-            'form': AuthenticationForm()
+            'form': AuthenticationForm(),
         }
         return render(request, 'registration/login.html', context)
     else:
