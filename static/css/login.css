@@ -1,0 +1,44 @@
+html {
+    overflow-x:hidden;
+    width: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: Open Sans, sans-serif;
+}
+body form {
+    text-align: center;
+    width: 50%;
+    padding: 1rem 2rem;
+    align-items: flex-start;
+    margin-left: 300px;
+}
+
+
+
+button {
+    font-size: 16px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    transition: .2s linear;
+    background:#6C5FBC;
+    position: relative;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+button:hover, a:hover {
+    box-shadow: 2px 2px white, 4px 4px #FC63B5;
+    top: -4px;
+    left: -4px;
+}
+a {
+    text-decoration: none;
+}

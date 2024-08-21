@@ -16,7 +16,8 @@ def handle_uploaded_file(f):
         for chunk in f.chunks():
             destination.write(chunk)
 
-def about(request):
+def uploads(request):
+    """Метод обрабатывает запрос загрузки файла от пользователя."""
     if request.method == 'POST':
         form = UploadsFileForms(request.POST, request.FILES)
         if form.is_valid():
@@ -28,20 +29,10 @@ def about(request):
     else:
         form = UploadsFileForms()
     return render(request, 'files/my_files.html', {'form': form})
-def upload(request):
-    if request.method == 'POST':
-        form = UploadsFileForms(request.POST, request.FILES)
-        if form.is_valid():
-            newfile = form.save(commit=False)
-            newfile.user = request.user
-            newfile.save()
-
-    else:
-        form = UploadsFileForms()
-    return render(request, 'files/my_files.html', {'form': form})
 
 
 def file_list(request):
+    """Метод представляет список загруженных файлов."""
     files = UploadsFileModel.objects.filter(user=request.user)
     context = {
         'files': files,
@@ -50,6 +41,7 @@ def file_list(request):
 
 
 def file_view(request, pk):
+    """Метод представляет информацию о файле."""
     file = get_object_or_404(UploadsFileModel, pk=pk, user=request.user)
     if request.method == 'GET':
         form = UploadsFileForms(instance=file)

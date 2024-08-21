@@ -7,16 +7,18 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href="{% static 'image/db.ico'%}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}">
   <title>Регистрация</title>
 </head>
 <body>
+<a href="{% url 'registration:login' %}">Войти</a>
 <div>
   <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Регистрация</button>
   </form>
-  <a href="{% url 'registration:login' %}">Войти</a>
+
 </div>
 
 </body>

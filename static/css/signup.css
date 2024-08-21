@@ -1,0 +1,43 @@
+
+button {
+    font-size: 16px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    transition: .2s linear;
+    background:#6C5FBC;
+    position: relative;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+button:hover, a:hover {
+    box-shadow: 2px 2px white, 4px 4px #FC63B5;
+    top: -4px;
+    left: -4px;
+}
+a {
+    text-decoration: none;
+}
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+form input {
+    margin-bottom: 15px;
+    border:2px solid #6C5FBC;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 5px;
+    width: 20%;
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+h3 {
+    text-align: left;
+    color: red;
+}
